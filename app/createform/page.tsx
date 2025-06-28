@@ -301,7 +301,7 @@ export default function GoogleFormsClone() {
     setIsLoading(false);
 
     if (result && result.componentName) {
-      setForkformsCommand(`npx forkforms ${result.componentName}`)
+      setForkformsCommand(`npx forkforms add ${result.componentName}`)
     } else {
       setForkformsCommand("An error occurred. No filename returned.")
     }

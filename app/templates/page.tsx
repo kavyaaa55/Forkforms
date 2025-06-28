@@ -8,7 +8,6 @@ import { Copy, Check, ArrowLeft, Github, Twitter, Mail, User, MessageSquare, Use
 export default function TemplatesPage() {
   const [copiedIndex, setCopiedIndex] = useState(-1);
 
-
   const copyCommand = (command: string, index: number): void => {
     navigator.clipboard.writeText(command);
     setCopiedIndex(index);
@@ -21,47 +20,53 @@ export default function TemplatesPage() {
       description: "Complete address form with country, state, and postal code validation. Perfect for shipping and billing information.",
       command: "npx forkforms add addressform",
       icon: <User className="h-6 w-6" />,
-
+      // Add your image URL here
+      image: "addressform.png", // Replace with "https://your-image-url.com/address-form.png"
     },
     {
       name: "Checkout Form",
       description: "Full checkout experience with payment details, shipping info, and order summary. E-commerce ready.",
       command: "npx forkforms add checkoutform",
       icon: <CreditCard className="h-6 w-6" />,
-
+      image: "addressform.png",
     },
     {
       name: "Contact Form",
       description: "Classic contact form with name, email, subject, and message fields. Perfect for landing pages.",
       command: "npx forkforms add contactform",
       icon: <MessageSquare className="h-6 w-6" />,
+      image: "contactform.png",
     },
     {
       name: "Edit Profile Form",
       description: "User profile editing form with avatar upload, personal info, and account settings.",
       command: "npx forkforms add editprofileform",
       icon: <User className="h-6 w-6" />,
+
+      image: "editprofileform.png",
     },
     {
       name: "Feedback Form",
       description: "Collect user feedback with rating system and detailed comment sections. Great for product improvement.",
       command: "npx forkforms add feedbackform",
       icon: <Star className="h-6 w-6" />,
+      image: "feedbackform.png",
     },
     {
       name: "Signup Form",
       description: "Complete registration form with password strength indicator and terms acceptance checkbox.",
       command: "npx forkforms add signupform",
       icon: <UserPlus className="h-6 w-6" />,
-
+      image: "signupform.png",
     },
-    {
-      name: "User Form",
-      description: "General user information form with validation and error handling. Flexible for various use cases.",
-      command: "npx forkforms add userform",
-      icon: <User className="h-6 w-6" />,
-
-    }
+    // {
+    //   name: "User Form",
+    //   description: "General user information form with validation and error handling. Flexible for various use cases.",
+    //   command: "npx forkforms add userform",
+    //   icon: <User className="h-6 w-6" />,
+    //
+    //   image: "userfrom.png",
+    // }
   ];
 
   return (
@@ -88,7 +93,6 @@ export default function TemplatesPage() {
               <a href="/createform" className="text-white/80 hover:text-[#E1B564] transition-colors">Create Form</a>
             </div>
             <Button className="bg-[#E1B564]/0 hover:bg-[#E1B564]/90 text-[#164A41] font-semibold">
-
             </Button>
           </nav>
         </div>
@@ -108,44 +112,60 @@ export default function TemplatesPage() {
         </div>
       </section>
 
-      {/* Templates Grid - Changed to 2 columns */}
+      {/* Templates Grid */}
       <section className="pb-20 relative z-10">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {templates.map((template, index) => (
               <Card key={index} className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl overflow-hidden">
-                {/* Template Preview Image - Made taller */}
-                <div className="relative h-64 bg-gradient-to-br from-[#164A41] to-[#4D774E] flex items-center justify-center overflow-hidden">
-                  <div className={`absolute inset-0 opacity-20`}></div>
+                {/* Template Preview Section - Dynamic height based on content */}
+                <div className="relative bg-gradient-to-br from-[#164A41] to-[#4D774E] flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 opacity-20"></div>
 
-                  {/* Mock Form Preview - Made larger */}
-                  <div className="relative z-10 bg-white/95 rounded-lg p-6 w-5/6 h-5/6 shadow-xl transform group-hover:scale-105 transition-transform duration-300">
-                    <div className="flex items-center justify-center h-full">
-                      <div className={`w-16 h-16 rounded-full bg-gradient-to-br from-[#164A41] to-[#4D774E] flex items-center justify-center text-white shadow-lg`}>
-                        {React.cloneElement(template.icon, { className: "h-8 w-8" })}
+                  {/* Image or Fallback Preview */}
+                  {template.image ? (
+                    // Direct Image Display
+                    <div className="relative z-10 p-4 w-full">
+                      <img
+                        src={template.image}
+                        alt={`${template.name} preview`}
+                        className="w-full h-auto max-h-80 object-contain rounded-lg shadow-xl transform group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          console.error(`Failed to load image for ${template.name}`);
+                          // Hide the image on error and show fallback
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    // Fallback Mock Form Preview
+                    <div className="relative z-10 bg-white/95 rounded-lg p-6 w-5/6 h-64 shadow-xl transform group-hover:scale-105 transition-transform duration-300">
+                      <div className="flex items-center justify-center h-full">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#164A41] to-[#4D774E] flex items-center justify-center text-white shadow-lg">
+                          {React.cloneElement(template.icon, { className: "h-8 w-8" })}
+                        </div>
+                      </div>
+
+                      {/* Form Elements Preview */}
+                      <div className="absolute top-3 left-3 right-3 space-y-2">
+                        <div className="h-3 bg-gray-200 rounded w-3/4"></div>
+                        <div className="h-2 bg-gray-100 rounded w-1/2"></div>
+                        <div className="h-3 bg-gray-200 rounded w-full mt-3"></div>
+                        <div className="h-2 bg-gray-100 rounded w-2/3"></div>
+                      </div>
+
+                      <div className="absolute bottom-3 left-3 right-3 space-y-2">
+                        <div className="h-3 bg-gray-200 rounded w-full"></div>
+                        <div className="h-3 bg-gray-200 rounded w-4/5"></div>
+                        <div className="h-6 bg-[#E1B564] rounded w-1/3 ml-auto mt-3"></div>
+                      </div>
+
+                      <div className="absolute top-1/2 left-3 right-3 -translate-y-1/2 space-y-3">
+                        <div className="h-8 bg-gray-50 border border-gray-200 rounded"></div>
+                        <div className="h-8 bg-gray-50 border border-gray-200 rounded"></div>
                       </div>
                     </div>
-
-                    {/* Form Elements Preview - Made more detailed */}
-                    <div className="absolute top-3 left-3 right-3 space-y-2">
-                      <div className="h-3 bg-gray-200 rounded w-3/4"></div>
-                      <div className="h-2 bg-gray-100 rounded w-1/2"></div>
-                      <div className="h-3 bg-gray-200 rounded w-full mt-3"></div>
-                      <div className="h-2 bg-gray-100 rounded w-2/3"></div>
-                    </div>
-
-                    <div className="absolute bottom-3 left-3 right-3 space-y-2">
-                      <div className="h-3 bg-gray-200 rounded w-full"></div>
-                      <div className="h-3 bg-gray-200 rounded w-4/5"></div>
-                      <div className="h-6 bg-[#E1B564] rounded w-1/3 ml-auto mt-3"></div>
-                    </div>
-
-                    {/* Form field indicators */}
-                    <div className="absolute top-1/2 left-3 right-3 -translate-y-1/2 space-y-3">
-                      <div className="h-8 bg-gray-50 border border-gray-200 rounded"></div>
-                      <div className="h-8 bg-gray-50 border border-gray-200 rounded"></div>
-                    </div>
-                  </div>
+                  )}
 
                   {/* Animated Background Elements */}
                   <div className="absolute top-6 right-6 w-10 h-10 bg-white/10 rounded-full animate-pulse"></div>

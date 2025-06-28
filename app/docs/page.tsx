@@ -34,20 +34,12 @@ export default function DocsPage() {
     },
     {
       id: 'step-2',
-      title: '2. Add Required Components',
-      description: 'Install the button component and other UI elements',
-      commands: [
-        'npx shadcn-ui@latest add button',
-      ]
-    },
-    {
-      id: 'step-3',
       title: '3. Choose Your Template',
       description: 'Run any command from our templates section to add form components',
       commands: [
-        'npx forkforms add contact-form',
-        'npx forkforms add newsletter',
-        'npx forkforms add login-form'
+        'npx forkforms add contactform',
+        'npx forkforms add addressform',
+        'npx forkforms add userfrom'
       ]
     }
   ];
@@ -62,14 +54,14 @@ export default function DocsPage() {
     {
       name: "Address Form",
       description: "Complete address form Perfect for checkouts.",
-      command: "npx forkforms add newsletter",
+      command: "npx forkforms add addressform",
       features: ["Responsive design", "drop down options"]
     },
     {
-      name: "Login Form",
-      description: "Sleek authentication form with remember me option",
-      command: "npx forkforms add login-form",
-      features: ["Remember me toggle", "Forgot password link"]
+      name: "Signup Form",
+      description: "Sleek signup form perfect for new account registration",
+      command: "npx forkforms add signupform",
+      features: ["Email validation", "login button"]
 
     },
     {
@@ -106,8 +98,7 @@ export default function DocsPage() {
               <Link href="/docs" className="text-[#E1B564] font-semibold">Docs</Link>
               <Link href="/createform" className="text-white/80 hover:text-[#E1B564] transition-colors">Create Form</Link>
             </div>
-            <Button className="bg-[#E1B564] hover:bg-[#E1B564]/90 text-[#164A41] font-semibold">
-              Get Started
+            <Button className="bg-[#E1B564]/0 hover:bg-[#E1B564]/90 text-[#164A41] font-semibold">
             </Button>
           </nav>
         </div>
@@ -136,7 +127,7 @@ export default function DocsPage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4">Quick Start Guide</h2>
-              <p className="text-white/80 text-lg">Get up and running in 3 simple steps</p>
+              <p className="text-white/80 text-lg">Get up and running in 2 simple steps</p>
             </div>
 
             <div className="space-y-8">
