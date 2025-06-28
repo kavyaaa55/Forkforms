@@ -90,7 +90,7 @@ export default function TemplatesPage() {
               <a href="/" className="text-2xl font-bold text-white">ForkForms</a>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="/features" className="text-white/80 hover:text-[#E1B564] transition-colors">Features</a>
+              <a href="/" className="text-white/80 hover:text-[#E1B564] transition-colors">Home</a>
               <a href="/templates" className="text-[#E1B564] font-semibold transition-colors">Templates</a>
               <a href="/docs" className="text-white/80 hover:text-[#E1B564] transition-colors">Docs</a>
               <a href="/createform" className="text-white/80 hover:text-[#E1B564] transition-colors">Create Form</a>
@@ -200,62 +200,19 @@ export default function TemplatesPage() {
       </section>
 
       {/* Getting Started Section */}
-      <section className="py-20 bg-white/5 backdrop-blur-sm relative z-10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Getting Started
-            </h2>
-            <p className="text-xl text-white/80 mb-8 leading-relaxed">
-              Using our templates is simple. Just run the command in your Next.js project directory and the component will be added to your codebase.
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-6 text-left">
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#E1B564] to-[#E1B564]/80 rounded-lg flex items-center justify-center text-[#164A41] font-bold text-xl mb-4">
-                    1
-                  </div>
-                  <CardTitle className="text-[#E1B564]">Choose Template</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-white/80">
-                    Browse our collection and find the perfect form template for your needs.
-                  </CardDescription>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#E1B564] to-[#E1B564]/80 rounded-lg flex items-center justify-center text-[#164A41] font-bold text-xl mb-4">
-                    2
-                  </div>
-                  <CardTitle className="text-[#E1B564]">Copy Command</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-white/80">
-                    Click the copy button to get the installation command for your selected template.
-                  </CardDescription>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#E1B564] to-[#E1B564]/80 rounded-lg flex items-center justify-center text-[#164A41] font-bold text-xl mb-4">
-                    3
-                  </div>
-                  <CardTitle className="text-[#E1B564]">Start Building</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-white/80">
-                    Run the command in your terminal and start using the form component immediately.
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* <section className="py-20 bg-white/5 backdrop-blur-sm relative z-10"> */}
+      {/*   <div className="container mx-auto px-4"> */}
+      {/*     <div className="max-w-4xl mx-auto text-center"> */}
+      {/*       <h2 className="text-4xl md:text-5xl font-bold text-white mb-6"> */}
+      {/*         Getting Started */}
+      {/*       </h2> */}
+      {/*       <Button className="text-xl text-white/80 mb-8 leading-relaxed"> */}
+      {/*         VIEW DOCS */}
+      {/*       </Button> */}
+      {/**/}
+      {/*     </div> */}
+      {/*   </div> */}
+      {/* </section> */}
 
       {/* Footer */}
       <footer className="bg-[#164A41] text-white py-16 relative z-10">

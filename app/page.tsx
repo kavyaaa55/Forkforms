@@ -39,13 +39,13 @@ export default function HomePage() {
           <nav className="flex items-center justify-between">
             <div className="text-2xl font-bold text-white">ForkForms</div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/features" className="text-white/80 hover:text-[#E1B564] transition-colors">Features</Link>
+              <Link href="/" className="text-white/80 hover:text-[#E1B564] transition-colors">Home</Link>
               <Link href="/templates" className="text-white/80 hover:text-[#E1B564] transition-colors">Templates</Link>
               <Link href="/docs" className="text-white/80 hover:text-[#E1B564] transition-colors">Docs</Link>
               <Link href="/createform" className="text-white/80 hover:text-[#E1B564] transition-colors">Create Form</Link>
             </div>
-            <Button className="bg-[#E1B564] hover:bg-[#E1B564]/90 text-[#164A41] font-semibold">
-              Get Started
+            <Button className="bg-[#E1B564]/0 hover:bg-[#E1B564]/90 text-[#164A41] font-semibold">
+
             </Button>
           </nav>
         </div>
@@ -115,7 +115,7 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-white">
+      <section id="features" className="py-20 bg-[#E1B564]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#164A41] mb-4">
