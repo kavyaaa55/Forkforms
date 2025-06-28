@@ -195,7 +195,7 @@ export default function ${componentName}() {
 
     return Response.json({
       message: "File created and pushed to GitHub successfully",
-      fileName,
+      componentName,
       localFilePath: filePath,
       github: {
         success: githubResult.success,

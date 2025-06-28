@@ -192,34 +192,24 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
+                name: "Address Form",
+                description: "Complete address form with country, state, and postal code validation. Perfect for shipping and billing information.",
+                command: "npx forkforms add addressform",
+                //improvementcon: <User className="h-6 w-6" />,
+
+              },
+              {
+                name: "Checkout Form",
+                description: "Full checkout experience with payment details, shipping info, and order summary. E-commerce ready.",
+                command: "npx forkforms add checkoutform",
+                //icon: <CreditCard className="h-6 w-6" />,
+
+              },
+              {
                 name: "Contact Form",
                 description: "Classic contact form with name, email, subject, and message fields. Perfect for landing pages.",
-                command: "npx forkforms add contact-form"
-              },
-              {
-                name: "Newsletter Signup",
-                description: "Simple email collection form with validation and success states. Great for building your email list.",
-                command: "npx forkforms add newsletter"
-              },
-              {
-                name: "User Registration",
-                description: "Complete signup form with password strength indicator and terms acceptance checkbox.",
-                command: "npx forkforms add register-form"
-              },
-              {
-                name: "Login Form",
-                description: "Sleek authentication form with remember me option and forgot password link.",
-                command: "npx forkforms add login-form"
-              },
-              {
-                name: "Feedback Form",
-                description: "Collect user feedback with rating system and detailed comment sections.",
-                command: "npx forkforms add feedback-form"
-              },
-              {
-                name: "Survey Form",
-                description: "Multi-step survey with progress indicator and various input types for data collection.",
-                command: "npx forkforms add survey-form"
+                command: "npx forkforms add contactform",
+                // icon: <MessageSquare className="h-6 w-6" />,
               }
             ].map((template, index) => (
               <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1">
@@ -247,45 +237,45 @@ export default function HomePage() {
             <div>
               <h4 className="text-[#E1B564] font-semibold mb-4">Product</h4>
               <div className="space-y-2">
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Templates</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Documentation</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Examples</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Pricing</a>
+                <a href="/templates" className="block text-white/70 hover:text-[#E1B564] transition-colors">Templates</a>
+                <a href="/docs" className="block text-white/70 hover:text-[#E1B564] transition-colors">Documentation</a>
+                <a href="/createforms" className="block text-white/70 hover:text-[#E1B564] transition-colors">Create forms</a>
+
               </div>
             </div>
 
-            <div>
-              <h4 className="text-[#E1B564] font-semibold mb-4">Developers</h4>
-              <div className="space-y-2">
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">API Reference</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Contributing</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">GitHub</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Changelog</a>
-              </div>
-            </div>
+            {/* <div> */}
+            {/*   <h4 className="text-[#E1B564] font-semibold mb-4">Developers</h4> */}
+            {/*   <div className="space-y-2"> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">API Reference</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Contributing</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">GitHub</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Changelog</a> */}
+            {/*   </div> */}
+            {/* </div> */}
 
-            <div>
-              <h4 className="text-[#E1B564] font-semibold mb-4">Support</h4>
-              <div className="space-y-2">
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Help Center</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Contact Us</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Bug Reports</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Feature Requests</a>
-              </div>
-            </div>
+            {/* <div> */}
+            {/*   <h4 className="text-[#E1B564] font-semibold mb-4">Support</h4> */}
+            {/*   <div className="space-y-2"> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Help Center</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Contact Us</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Bug Reports</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Feature Requests</a> */}
+            {/*   </div> */}
+            {/* </div> */}
 
             <div>
               <h4 className="text-[#E1B564] font-semibold mb-4">Connect</h4>
               <div className="flex space-x-4">
-                <a href="#" className="text-white/70 hover:text-[#E1B564] transition-colors">
-                  <Github className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-white/70 hover:text-[#E1B564] transition-colors">
+                {/* <a href="#" className="text-white/70 hover:text-[#E1B564] transition-colors"> */}
+                {/*   <Github className="h-5 w-5" /> */}
+                {/* </a> */}
+                <a href="https://x.com/CODEStalker1111?t=mn0bmsRikKvmUVvelnBYag&s=08" className="text-white/70 hover:text-[#E1B564] transition-colors">
                   <Twitter className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-white/70 hover:text-[#E1B564] transition-colors">
-                  <Mail className="h-5 w-5" />
-                </a>
+                {/* <a href="#" className="text-white/70 hover:text-[#E1B564] transition-colors"> */}
+                {/*   <Mail className="h-5 w-5" /> */}
+                {/* </a> */}
               </div>
             </div>
           </div>

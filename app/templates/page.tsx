@@ -79,14 +79,6 @@ export default function TemplatesPage() {
         <div className="container mx-auto px-4 py-4">
           <nav className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              {/* <Button */}
-              {/*   variant="ghost" */}
-              {/*   size="sm" */}
-              {/*   className="text-white/80 hover:text-[#E1B564] hover:bg-white/10" */}
-              {/* > */}
-              {/*   <ArrowLeft className="h-4 w-4 mr-2" /> */}
-              {/*   Back */}
-              {/* </Button> */}
               <a href="/" className="text-2xl font-bold text-white">ForkForms</a>
             </div>
             <div className="hidden md:flex items-center space-x-8">
@@ -95,8 +87,8 @@ export default function TemplatesPage() {
               <a href="/docs" className="text-white/80 hover:text-[#E1B564] transition-colors">Docs</a>
               <a href="/createform" className="text-white/80 hover:text-[#E1B564] transition-colors">Create Form</a>
             </div>
-            <Button className="bg-[#E1B564] hover:bg-[#E1B564]/90 text-[#164A41] font-semibold">
-              Get Started
+            <Button className="bg-[#E1B564]/0 hover:bg-[#E1B564]/90 text-[#164A41] font-semibold">
+
             </Button>
           </nav>
         </div>
@@ -112,61 +104,68 @@ export default function TemplatesPage() {
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
               Beautiful, production-ready form components. Copy the command and add to your Next.js project instantly.
             </p>
-            {/* <Badge className="bg-[#E1B564] text-[#164A41] font-semibold text-lg px-4 py-2 mb-8"> */}
-            {/*   {templates.length} Templates Available */}
-            {/* </Badge> */}
           </div>
         </div>
       </section>
 
-      {/* Templates Grid */}
+      {/* Templates Grid - Changed to 2 columns */}
       <section className="pb-20 relative z-10">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {templates.map((template, index) => (
               <Card key={index} className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl overflow-hidden">
-                {/* Template Preview Image */}
-                <div className="relative h-48 bg-gradient-to-br from-[#164A41] to-[#4D774E] flex items-center justify-center overflow-hidden">
+                {/* Template Preview Image - Made taller */}
+                <div className="relative h-64 bg-gradient-to-br from-[#164A41] to-[#4D774E] flex items-center justify-center overflow-hidden">
                   <div className={`absolute inset-0 opacity-20`}></div>
 
-                  {/* Mock Form Preview */}
-                  <div className="relative z-10 bg-white/90 rounded-lg p-4 w-4/5 h-4/5 shadow-lg transform group-hover:scale-105 transition-transform duration-300">
+                  {/* Mock Form Preview - Made larger */}
+                  <div className="relative z-10 bg-white/95 rounded-lg p-6 w-5/6 h-5/6 shadow-xl transform group-hover:scale-105 transition-transform duration-300">
                     <div className="flex items-center justify-center h-full">
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg`}>
-                        {template.icon}
+                      <div className={`w-16 h-16 rounded-full bg-gradient-to-br from-[#164A41] to-[#4D774E] flex items-center justify-center text-white shadow-lg`}>
+                        {React.cloneElement(template.icon, { className: "h-8 w-8" })}
                       </div>
                     </div>
 
-                    {/* Form Elements Preview */}
-                    <div className="absolute top-2 left-2 right-2 space-y-1">
-                      <div className="h-2 bg-gray-200 rounded w-3/4"></div>
-                      <div className="h-2 bg-gray-200 rounded w-1/2"></div>
+                    {/* Form Elements Preview - Made more detailed */}
+                    <div className="absolute top-3 left-3 right-3 space-y-2">
+                      <div className="h-3 bg-gray-200 rounded w-3/4"></div>
+                      <div className="h-2 bg-gray-100 rounded w-1/2"></div>
+                      <div className="h-3 bg-gray-200 rounded w-full mt-3"></div>
+                      <div className="h-2 bg-gray-100 rounded w-2/3"></div>
                     </div>
 
-                    <div className="absolute bottom-2 left-2 right-2 space-y-1">
-                      <div className="h-2 bg-gray-200 rounded w-full"></div>
-                      <div className="h-2 bg-gray-200 rounded w-2/3"></div>
+                    <div className="absolute bottom-3 left-3 right-3 space-y-2">
+                      <div className="h-3 bg-gray-200 rounded w-full"></div>
+                      <div className="h-3 bg-gray-200 rounded w-4/5"></div>
+                      <div className="h-6 bg-[#E1B564] rounded w-1/3 ml-auto mt-3"></div>
+                    </div>
+
+                    {/* Form field indicators */}
+                    <div className="absolute top-1/2 left-3 right-3 -translate-y-1/2 space-y-3">
+                      <div className="h-8 bg-gray-50 border border-gray-200 rounded"></div>
+                      <div className="h-8 bg-gray-50 border border-gray-200 rounded"></div>
                     </div>
                   </div>
 
                   {/* Animated Background Elements */}
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-white/10 rounded-full animate-pulse"></div>
-                  <div className="absolute bottom-4 left-4 w-6 h-6 bg-white/10 rounded-full animate-pulse delay-1000"></div>
+                  <div className="absolute top-6 right-6 w-10 h-10 bg-white/10 rounded-full animate-pulse"></div>
+                  <div className="absolute bottom-6 left-6 w-8 h-8 bg-white/10 rounded-full animate-pulse delay-1000"></div>
+                  <div className="absolute top-1/2 left-4 w-6 h-6 bg-white/5 rounded-full animate-pulse delay-500"></div>
                 </div>
 
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-[#E1B564] text-xl flex items-center gap-2">
+                  <CardTitle className="text-[#E1B564] text-2xl flex items-center gap-2">
                     {template.name}
                   </CardTitle>
                 </CardHeader>
 
                 <CardContent className="space-y-4">
-                  <CardDescription className="text-white/80 leading-relaxed min-h-[3rem]">
+                  <CardDescription className="text-white/80 leading-relaxed min-h-[4rem] text-base">
                     {template.description}
                   </CardDescription>
 
                   {/* Command Section */}
-                  <div className="bg-[#164A41]/50 rounded-lg p-3 border border-white/10">
+                  <div className="bg-[#164A41]/50 rounded-lg p-4 border border-white/10">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-[#E1B564] text-sm font-semibold">Install Command</span>
                       <Button
@@ -187,7 +186,7 @@ export default function TemplatesPage() {
                   </div>
 
                   <Button
-                    className="w-full bg-[#E1B564] hover:bg-[#E1B564]/90 text-[#164A41] font-semibold"
+                    className="w-full bg-[#E1B564] hover:bg-[#E1B564]/90 text-[#164A41] font-semibold py-3 text-base"
                     onClick={() => copyCommand(template.command, index)}
                   >
                     {copiedIndex === index ? 'Copied!' : 'Copy Command'}
@@ -198,21 +197,6 @@ export default function TemplatesPage() {
           </div>
         </div>
       </section>
-
-      {/* Getting Started Section */}
-      {/* <section className="py-20 bg-white/5 backdrop-blur-sm relative z-10"> */}
-      {/*   <div className="container mx-auto px-4"> */}
-      {/*     <div className="max-w-4xl mx-auto text-center"> */}
-      {/*       <h2 className="text-4xl md:text-5xl font-bold text-white mb-6"> */}
-      {/*         Getting Started */}
-      {/*       </h2> */}
-      {/*       <Button className="text-xl text-white/80 mb-8 leading-relaxed"> */}
-      {/*         VIEW DOCS */}
-      {/*       </Button> */}
-      {/**/}
-      {/*     </div> */}
-      {/*   </div> */}
-      {/* </section> */}
 
       {/* Footer */}
       <footer className="bg-[#164A41] text-white py-16 relative z-10">

@@ -70,6 +70,8 @@ export default function GoogleFormsClone() {
   const [draggedQuestion, setDraggedQuestion] = useState<string | null>(null)
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null)
   const [generatedFormData, setGeneratedFormData] = useState<any | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [forkformsCommand, setForkformsCommand] = useState<string | null>(null)
 
   const addQuestion = (type: QuestionType) => {
     const newQuestion: Question = {
@@ -273,6 +275,8 @@ export default function GoogleFormsClone() {
     console.log("\n=== COMPLETE FORM DATA ===")
 
     const senddata = async (formData: any) => {
+      setIsLoading(true)
+      setForkformsCommand(null)
       try {
         const response = await fetch("/api/createcomponent", {
           method: "POST",
@@ -291,7 +295,16 @@ export default function GoogleFormsClone() {
       }
     };
 
-    await senddata(formData);
+    //await senddata(formData);
+
+    const result = await senddata(formData);
+    setIsLoading(false);
+
+    if (result && result.componentName) {
+      setForkformsCommand(`npx forkforms ${result.componentName}`)
+    } else {
+      setForkformsCommand("An error occurred. No filename returned.")
+    }
   }
 
   const renderQuestionEditor = (question: Question, index: number) => {
@@ -555,23 +568,42 @@ export default function GoogleFormsClone() {
 
         {/* Create Component Button */}
         {form.questions.length > 0 && (
-          <Card className="shadow-lg mt-6 bg-white/90 backdrop-blur-sm border-[#90C695]/30">
+          <Card className="shadow-md mt-6">
             <CardContent className="p-6 text-center">
               <Button
                 onClick={handleCreateComponent}
                 size="lg"
-                className="bg-gradient-to-r from-[#E1B564] to-[#E1B564]/90 hover:from-[#E1B564]/90 hover:to-[#E1B564]/80 text-[#164A41] shadow-lg px-8 py-3 text-lg font-semibold"
+                className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-md px-8 py-3 text-lg font-medium"
+                disabled={isLoading}
               >
-                Create Component
+                {isLoading ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 mr-2 inline" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                    </svg>
+                    Generating...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4 mr-2" />
+                    Create Component
+                  </>
+                )}
               </Button>
-              <p className="text-sm text-[#4D774E] mt-2">
+              <p className="text-sm text-gray-600 mt-2">
                 Generate your form component with {form.questions.length} question
                 {form.questions.length !== 1 ? "s" : ""}
               </p>
+              {forkformsCommand && (
+                <div className="mt-4 bg-gray-100 rounded p-4 text-left">
+                  <div className="mb-2 text-gray-700 font-medium">Run this command in your terminal:</div>
+                  <code className="bg-gray-200 px-3 py-2 rounded font-mono text-emerald-700 text-lg block">{forkformsCommand}</code>
+                </div>
+              )}
             </CardContent>
           </Card>
         )}
-
         {/* Floating add button */}
         <div className="fixed right-6 bottom-6">
           <Button

@@ -56,26 +56,21 @@ export default function DocsPage() {
     {
       name: "Contact Form",
       description: "Classic contact form with name, email, subject, and message fields",
-      command: "npx forkforms add contact-form",
-      features: ["Form validation", "Responsive design", "Email integration ready"]
+      command: "npx forkforms add contactform",
+      features: ["Email validation", "Responsive design"]
     },
     {
-      name: "Newsletter Signup",
-      description: "Simple email collection form with validation and success states",
+      name: "Address Form",
+      description: "Complete address form Perfect for checkouts.",
       command: "npx forkforms add newsletter",
-      features: ["Email validation", "Success animation", "Error handling"]
-    },
-    {
-      name: "User Registration",
-      description: "Complete signup form with password strength indicator",
-      command: "npx forkforms add register-form",
-      features: ["Password strength meter", "Terms checkbox", "Real-time validation"]
+      features: ["Responsive design", "drop down options"]
     },
     {
       name: "Login Form",
       description: "Sleek authentication form with remember me option",
       command: "npx forkforms add login-form",
-      features: ["Remember me toggle", "Forgot password link", "Social login ready"]
+      features: ["Remember me toggle", "Forgot password link"]
+
     },
     {
       name: "Feedback Form",
@@ -249,7 +244,7 @@ export default function DocsPage() {
         </div>
       </section>
 
-      {/* Templates Section - Updated with link to /templates */}
+      {/* Templates Section */}
       <section className="py-16 bg-gradient-to-br from-[#164A41] to-[#4D774E] text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -306,13 +301,13 @@ export default function DocsPage() {
         </div>
       </section>
 
-      {/* Usage Examples - Updated with yellow background */}
+      {/* Usage Examples - Updated with better visibility */}
       <section className="py-16 bg-gradient-to-br from-[#E1B564] to-[#E1B564]/90">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-[#164A41] mb-8">Usage Example</h2>
 
-            <Card className="border-[#164A41]/20 bg-white/95 backdrop-blur-sm">
+            <Card className="border-[#164A41]/20 bg-white shadow-xl">
               <CardHeader>
                 <CardTitle className="text-[#164A41] flex items-center gap-2">
                   <Code className="h-5 w-5" />
@@ -320,22 +315,91 @@ export default function DocsPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-black/85 rounded-lg p-6 font-mono text-sm overflow-x-auto">
-                  <div className="space-y-2">
-                    <div><span className="text-[#90C695]">import</span> <span className="text-[#E1B564]">ContactForm</span> <span className="text-[#90C695]">from</span> <span className="text-white">'@/components/ui/contact-form'</span>;</div>
+                <div className="bg-[#1E293B] rounded-lg p-6 font-mono text-sm overflow-x-auto shadow-inner">
+                  <div className="space-y-2 relative">
+                    <div>
+                      <span className="text-emerald-400">import</span>{" "}
+                      <span className="text-yellow-400">ContactForm</span>{" "}
+                      <span className="text-emerald-400">from</span>{" "}
+                      <span className="text-sky-300">'@/components/ui/contact-form'</span>;
+                    </div>
                     <div className="mt-4">
-                      <div><span className="text-[#90C695]">export default function</span> <span className="text-[#E1B564]">Page</span>() {`{`}</div>
-                      <div className="ml-4"><span className="text-[#90C695]">return</span> (</div>
-                      <div className="ml-8">&lt;<span className="text-[#E1B564]">div</span> <span className="text-white">className</span>=<span className="text-white">"container mx-auto py-8"</span>&gt;</div>
-                      <div className="ml-12">&lt;<span className="text-[#E1B564]">ContactForm</span> /&gt;</div>
-                      <div className="ml-8">&lt;/<span className="text-[#E1B564]">div</span>&gt;</div>
+                      <div>
+                        <span className="text-emerald-400">export default function</span>{" "}
+                        <span className="text-yellow-400">Page</span>() {`{`}
+                      </div>
+                      <div className="ml-4">
+                        <span className="text-emerald-400">return</span> (
+                      </div>
+                      <div className="ml-8">
+                        &lt;<span className="text-yellow-400">div</span>{" "}
+                        <span className="text-sky-300">className</span>=
+                        <span className="text-green-300">"container mx-auto py-8"</span>&gt;
+                      </div>
+                      <div className="ml-12">
+                        &lt;<span className="text-yellow-400">ContactForm</span> /&gt;
+                      </div>
+                      <div className="ml-8">
+                        &lt;/<span className="text-yellow-400">div</span>&gt;
+                      </div>
                       <div className="ml-4">);</div>
                       <div className="text-white">{`}`}</div>
                     </div>
                   </div>
                 </div>
+
+                {/* Copy button */}
+                <div className="mt-4 flex justify-end">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => copyCommand(`import ContactForm from '@/components/ui/contact-form';
+
+export default function Page() {
+  return (
+    <div className="container mx-auto py-8">
+      <ContactForm />
+    </div>
+  );
+}`, 'usage-example')}
+                    className="text-[#164A41] hover:bg-[#164A41]/10"
+                  >
+                    {copied === 'usage-example' ? (
+                      <Check className="h-4 w-4 mr-2" />
+                    ) : (
+                      <Copy className="h-4 w-4 mr-2" />
+                    )}
+                    Copy Code
+                  </Button>
+                </div>
               </CardContent>
             </Card>
+
+            {/* Added: Additional usage notes */}
+            <div className="mt-6 space-y-4">
+              <Card className="border-[#164A41]/20 bg-white/95">
+                <CardContent className="p-6">
+                  <h3 className="text-[#164A41] font-semibold mb-2 flex items-center gap-2">
+                    <Zap className="h-5 w-5 text-[#E1B564]" />
+                    Quick Tips
+                  </h3>
+                  <ul className="space-y-2 text-[#164A41]/80">
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="h-4 w-4 mt-1 text-[#E1B564]" />
+                      <span>All form components are fully customizable through props</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="h-4 w-4 mt-1 text-[#E1B564]" />
+                      <span>Forms are responsive by default and adapt to all screen sizes</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="h-4 w-4 mt-1 text-[#E1B564]" />
+                      <span>Built-in form validation and error handling included</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
