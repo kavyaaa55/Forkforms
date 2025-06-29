@@ -1,4 +1,6 @@
 "use client"
+import dynamic from 'next/dynamic';
+import MobileNav from '@/components/MobileNav';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -6,10 +8,24 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Copy, Check, Rocket, Palette, Zap, Settings, Smartphone, Shield, ArrowRight, Github, Twitter, Mail } from 'lucide-react';
 
+const MobilePopup = dynamic(() => import('@/components/MobilePopup'), { ssr: false });
 export default function HomePage() {
   const [copied, setCopied] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [showMobilePopup, setShowMobilePopup] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  useEffect(() => {
+    const hasSeenPopup = localStorage.getItem('hasSeenMobilePopup');
+
+    if (!hasSeenPopup) {
+      setShowMobilePopup(true);
+      localStorage.setItem('hasSeenMobilePopup', 'true');
+    }
+  }, []);
+  const handleClosePopup = () => {
+    setShowMobilePopup(false);
+  };
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
@@ -47,6 +63,10 @@ export default function HomePage() {
             <Button className="bg-[#E1B564]/0 hover:bg-[#E1B564]/90 text-[#164A41] font-semibold">
 
             </Button>
+            <MobileNav
+              isOpen={isMobileMenuOpen}
+              onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            />
           </nav>
         </div>
       </header>
@@ -59,14 +79,25 @@ export default function HomePage() {
               FORKFORMS
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Beautiful, ready-to-use form components for Next.js. Just run one command and add stunning forms to your project instantly.
+              Beautiful, customize, ready-to-use form components for Next.js. Just run one command and add stunning forms to your project instantly.
             </p>
+            <p className="text-sm md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+              *preferable use desktop mode
+            </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/templates"
                 className="inline-flex items-center bg-[#E1B564] hover:bg-[#E1B564]/90 text-[#164A41] font-semibold text-lg px-8 py-3 rounded-md"
               >
                 Browse Templates
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+              <a
+                href="/createform"
+                className="inline-flex items-center bg-[#E1B564] hover:bg-[#E1B564]/90 text-[#164A41] font-semibold text-lg px-8 py-3 rounded-md"
+              >
+                Customize form
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
               <a
@@ -285,6 +316,7 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+      {showMobilePopup && <MobilePopup onClose={handleClosePopup} />}
     </div>
   );
 }

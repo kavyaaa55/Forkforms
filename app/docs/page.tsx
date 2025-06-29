@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Twitter } from 'next/dist/lib/metadata/types/twitter-types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Copy, Check, ArrowRight, Github, Terminal, Download, Code, Zap, Book, ChevronRight, ExternalLink } from 'lucide-react';
+import { Copy, Check, ArrowRight, Github, Terminal, Download, Code, Zap, Book, ChevronRight, ExternalLink, TwitterIcon } from 'lucide-react';
 
 export default function DocsPage() {
   const [copied, setCopied] = useState('');
@@ -396,19 +397,61 @@ export default function Page() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#164A41] text-white py-12">
+      <footer className="bg-[#164A41] text-white py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center">
-            <Link href="/" className="text-2xl font-bold text-[#E1B564] mb-4 block">ForkForms</Link>
-            <p className="text-white/60 mb-6">Beautiful forms for Next.js developers</p>
-            <div className="flex justify-center space-x-6">
-              <Link href="/" className="text-white/70 hover:text-[#E1B564] transition-colors">Home</Link>
-              <Link href="/templates" className="text-white/70 hover:text-[#E1B564] transition-colors">Templates</Link>
-              <Link href="/docs" className="text-[#E1B564]">Documentation</Link>
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h4 className="text-[#E1B564] font-semibold mb-4">Product</h4>
+              <div className="space-y-2">
+                <a href="/templates" className="block text-white/70 hover:text-[#E1B564] transition-colors">Templates</a>
+                <a href="/docs" className="block text-white/70 hover:text-[#E1B564] transition-colors">Documentation</a>
+                <a href="/createforms" className="block text-white/70 hover:text-[#E1B564] transition-colors">Create forms</a>
+
+              </div>
             </div>
+
+            {/* <div> */}
+            {/*   <h4 className="text-[#E1B564] font-semibold mb-4">Developers</h4> */}
+            {/*   <div className="space-y-2"> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">API Reference</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Contributing</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">GitHub</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Changelog</a> */}
+            {/*   </div> */}
+            {/* </div> */}
+
+            {/* <div> */}
+            {/*   <h4 className="text-[#E1B564] font-semibold mb-4">Support</h4> */}
+            {/*   <div className="space-y-2"> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Help Center</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Contact Us</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Bug Reports</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Feature Requests</a> */}
+            {/*   </div> */}
+            {/* </div> */}
+
+            <div>
+              <h4 className="text-[#E1B564] font-semibold mb-4">Connect</h4>
+              <div className="flex space-x-4">
+                {/* <a href="#" className="text-white/70 hover:text-[#E1B564] transition-colors"> */}
+                {/*   <Github className="h-5 w-5" /> */}
+                {/* </a> */}
+                <a href="https://x.com/CODEStalker1111?t=mn0bmsRikKvmUVvelnBYag&s=08" className="text-white/70 hover:text-[#E1B564] transition-colors">
+                  <TwitterIcon className="h-5 w-5" />
+                </a>
+                {/* <a href="#" className="text-white/70 hover:text-[#E1B564] transition-colors"> */}
+                {/*   <Mail className="h-5 w-5" /> */}
+                {/* </a> */}
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-white/20 pt-8 text-center text-white/60">
+            <p>&copy; 2025 ForkForms. Built for Next.js developers.</p>
           </div>
         </div>
       </footer>
+
     </div>
   );
 }

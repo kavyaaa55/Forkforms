@@ -219,51 +219,51 @@ export default function TemplatesPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#164A41] text-white py-16 relative z-10">
+      <footer className="bg-[#164A41] text-white py-16">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <h4 className="text-[#E1B564] font-semibold mb-4">Product</h4>
               <div className="space-y-2">
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Templates</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Documentation</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Examples</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Pricing</a>
+                <a href="/templates" className="block text-white/70 hover:text-[#E1B564] transition-colors">Templates</a>
+                <a href="/docs" className="block text-white/70 hover:text-[#E1B564] transition-colors">Documentation</a>
+                <a href="/createforms" className="block text-white/70 hover:text-[#E1B564] transition-colors">Create forms</a>
+
               </div>
             </div>
 
-            <div>
-              <h4 className="text-[#E1B564] font-semibold mb-4">Developers</h4>
-              <div className="space-y-2">
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">API Reference</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Contributing</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">GitHub</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Changelog</a>
-              </div>
-            </div>
+            {/* <div> */}
+            {/*   <h4 className="text-[#E1B564] font-semibold mb-4">Developers</h4> */}
+            {/*   <div className="space-y-2"> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">API Reference</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Contributing</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">GitHub</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Changelog</a> */}
+            {/*   </div> */}
+            {/* </div> */}
 
-            <div>
-              <h4 className="text-[#E1B564] font-semibold mb-4">Support</h4>
-              <div className="space-y-2">
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Help Center</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Contact Us</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Bug Reports</a>
-                <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Feature Requests</a>
-              </div>
-            </div>
+            {/* <div> */}
+            {/*   <h4 className="text-[#E1B564] font-semibold mb-4">Support</h4> */}
+            {/*   <div className="space-y-2"> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Help Center</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Contact Us</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Bug Reports</a> */}
+            {/*     <a href="#" className="block text-white/70 hover:text-[#E1B564] transition-colors">Feature Requests</a> */}
+            {/*   </div> */}
+            {/* </div> */}
 
             <div>
               <h4 className="text-[#E1B564] font-semibold mb-4">Connect</h4>
               <div className="flex space-x-4">
-                <a href="#" className="text-white/70 hover:text-[#E1B564] transition-colors">
-                  <Github className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-white/70 hover:text-[#E1B564] transition-colors">
+                {/* <a href="#" className="text-white/70 hover:text-[#E1B564] transition-colors"> */}
+                {/*   <Github className="h-5 w-5" /> */}
+                {/* </a> */}
+                <a href="https://x.com/CODEStalker1111?t=mn0bmsRikKvmUVvelnBYag&s=08" className="text-white/70 hover:text-[#E1B564] transition-colors">
                   <Twitter className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-white/70 hover:text-[#E1B564] transition-colors">
-                  <Mail className="h-5 w-5" />
-                </a>
+                {/* <a href="#" className="text-white/70 hover:text-[#E1B564] transition-colors"> */}
+                {/*   <Mail className="h-5 w-5" /> */}
+                {/* </a> */}
               </div>
             </div>
           </div>
@@ -273,6 +273,7 @@ export default function TemplatesPage() {
           </div>
         </div>
       </footer>
+
     </div>
   );
 }
