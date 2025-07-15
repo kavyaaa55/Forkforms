@@ -33,14 +33,7 @@ Try it now: [https://forkforms.vercel.app](https://forkforms.vercel.app)
 
 ---
 
-## 🚀 Quick Usage via CLI
-
-Install a generated component into your project in one line:
-
-
-npx forkforms-cli@latest
-
-git clone https://github.com/yourusername/forkforms.git
+git clone https://github.com/kavyaaa55/forkforms.git
 cd forkforms
 npm install
 npm run dev
