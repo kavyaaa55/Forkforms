@@ -33,8 +33,8 @@ Try it now: [https://forkforms.vercel.app](https://forkforms.vercel.app)
 
 ---
 
+```bash
 git clone https://github.com/kavyaaa55/forkforms.git
 cd forkforms
 npm install
 npm run dev
-```bash
